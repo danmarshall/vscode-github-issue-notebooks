@@ -103,7 +103,7 @@
 }
 .item-row:hover .actions,
 .item-row:focus-within .actions {
-	display: flex;
+	display: block;
 }
 .item-row .actions li {
 	list-style-type: none;

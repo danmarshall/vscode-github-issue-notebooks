@@ -73,12 +73,36 @@ const Item: FunctionComponent<{
 			<div className="status">
 				<span>#{item.number} opened {new Date(item.created_at).toLocaleDateString()} by {item.user.login}</span>
 				<span style={{ flex: 1 }} />
-				<ul className='actions'>
-					<li><a role='button' onClick={hide}>Hide</a></li>
-				</ul>
+				<div className='actions'>
+					<ul>
+						<li><a role='button' onClick={hide}>Hide</a></li>
+					</ul>
+					<TextReply item={item} />
+				</div>
 			</div>
 		</div>;
 
+
+const TextReply: FunctionComponent<{
+	item: SearchIssuesAndPullRequestsResponseItemsItem;
+}> = ({ item }) => {
+	const [text, setText] = useState<string>('LGTM');
+	return <div>
+		Quick reply:
+		<input
+			type='text'
+			value={text}
+			onKeyUp={e => {
+				const charCode = e.key.charCodeAt(0);
+				console.log('keyup', charCode);
+				if (charCode === 13) {
+					console.log('submit text', text, item);
+				} else {
+					setText((e.target as HTMLInputElement).value);
+				}
+			}} />
+	</div>;
+};
 
 const RepoLabel: FunctionComponent<{ url: string; }> = ({ url }) => {
 	const match = /.+\/(.+\/.+)$/.exec(url);
