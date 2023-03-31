@@ -4,7 +4,7 @@
 	"description": "GitHub Issue Notebooks for VS Code",
 	"publisher": "ms-vscode",
 	"preview": true,
-	"version": "0.0.125",
+	"version": "0.0.128",
 	"repository": {
 		"url": "https://github.com/microsoft/vscode-github-issue-notebooks"
 	},
@@ -14,9 +14,6 @@
 	"categories": [
 		"Other"
 	],
-	"enabledApiProposals": [
-		"localization"
-	],
 	"capabilities": {
 		"untrustedWorkspaces": {
 			"supported": true
@@ -25,8 +22,6 @@
 	},
 	"icon": "icon.png",
 	"activationEvents": [
-		"onCommand:github-issues.new",
-		"onLanguage:github-issues",
 		"onNotebook:github-issues"
 	],
 	"main": "./dist/extension-node.js",
